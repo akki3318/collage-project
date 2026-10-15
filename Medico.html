@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEDICO - Your Home Medical Store</title>
+  <style>
+    /* Global Styles */
+    :root {
+      --primary: #0077b6;
+      --primary-hover: #023e8a;
+      --secondary: #2a9d8f;
+      --text-dark: #1d3557;
+      --text-muted: #6c757d;
+      --bg-light: #f8f9fa;
+      --border: #e9ecef;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation Bar */
+    header {
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background-color: #ffffff;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .brand {
+      text-decoration: none;
+    }
+
+    .brand h1 {
+      font-size: 28px;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+
+    .brand p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: -4px;
+    }
+
+    /* Search Bar */
+    .search-box {
+      flex: 1;
+      max-width: 500px;
+      margin: 0 30px;
+      display: flex;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 16px;
+      border: 1px solid #ccc;
+      border-right: none;
+      border-radius: var(--radius) 0 0 var(--radius);
+      outline: none;
+      font-size: 14px;
+    }
+
+    .search-box button {
+      padding: 10px 20px;
+      background-color: var(--primary);
+      color: #fff;
+      border: 1px solid var(--primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .search-box button:hover {
+      background-color: var(--primary-hover);
+    }
+
+    /* Nav Links */
+    .nav-actions {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-solid {
+      background-color: var(--primary);
+      color: #ffffff;
+      border: 1px solid var(--primary);
+    }
+
+    .btn-solid:hover {
+      background-color: var(--primary-hover);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 60px 0;
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg-light) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    /* Action Cards Section */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 50px 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 25px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* Quick Upload Bar */
+    .upload-banner {
+      background-color: #e8f4f8;
+      border-left: 4px solid var(--secondary);
+      padding: 20px;
+      border-radius: var(--radius);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .upload-banner h3 {
+      font-size: 18px;
+      color: var(--text-dark);
+    }
+
+    .upload-banner p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <h1>MEDICO</h1>
+        <p>your home medical store</p>
+      </a>
+
+      <div class="search-box">
+        <input type="text" placeholder="Search medicines, health products, active salts...">
+        <button type="button">Search</button>
+      </div>
+
+      <div class="nav-actions">
+        <a href="#history" class="btn btn-outline">History</a>
+        <a href="#login" class="btn btn-solid">Log In / Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <h2>Healthcare Delivered to Your Doorstep</h2>
+      <p>Genuine medicines, quick prescription refills, and verified online doctor appointments.</p>
+    </section>
+
+    <!-- Upload Prescription Banner -->
+    <section class="upload-banner">
+      <div>
+        <h3>Have a prescription ready?</h3>
+        <p>Upload your doctor's note and let our certified pharmacists handle the rest.</p>
+      </div>
+      <a href="#upload" class="btn btn-solid" style="background-color: var(--secondary); border-color: var(--secondary);">Upload Prescription</a>
+    </section>
+
+    <!-- Core Features Grid -->
+    <section class="features-grid">
+      <div class="card">
+        <span class="card-icon">📋</span>
+        <h3>Upload Prescription</h3>
+        <p>Fast track your medicine order by providing your paper prescription.</p>
+        <a href="#upload" class="btn btn-outline">Upload Now</a>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">🩺</span>
+        <h3>Book Appointment</h3>
+        <p>Connect with registered specialist doctors for online consultations.</p>
+        <a href="doctor.html" class="btn btn-outline">Find Doctor</a>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">📜</span>
+        <h3>Order History</h3>
+        <p>Track current deliveries and reorder previous monthly prescriptions.</p>
+        <a href="#history" class="btn btn-outline">View History</a>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">👤</span>
+        <h3>Account & Profile</h3>
+        <p>Manage your delivery addresses, patients, and saved payment options.</p>
+        <a href="#login" class="btn btn-outline">Manage Account</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 MEDICO. All rights reserved. Yours home medical store.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
